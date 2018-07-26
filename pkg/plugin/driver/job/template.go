@@ -74,11 +74,7 @@ spec:
   restartPolicy: Never
   serviceAccountName: sonobuoy-serviceaccount
   tolerations:
-  - effect: NoSchedule
-    key: node-role.kubernetes.io/master
-    operator: Exists
-  - key: CriticalAddonsOnly
-    operator: Exists
+  - operator: Exists
   volumes:
   - emptyDir: {}
     name: results

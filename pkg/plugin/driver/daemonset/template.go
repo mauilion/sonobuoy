@@ -86,18 +86,14 @@ spec:
       hostNetwork: true
       hostPID: true
       tolerations:
-      - effect: NoSchedule
-        key: node-role.kubernetes.io/master
-        operator: Exists
-      - key: CriticalAddonsOnly
-        operator: Exists
+      - operator: Exists
       volumes:
       - emptyDir: {}
         name: results
       - hostPath:
           path: /
         name: root
-			{{- range .ExtraVolumes }}
+      {{- range .ExtraVolumes }}
       - {{ . | indent 8 }}
       {{- end -}}
 `)
